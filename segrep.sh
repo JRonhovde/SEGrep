@@ -1,7 +1,7 @@
 # V1.0 2015-10-21
 segrep(){
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-    FILES=$(cat "$DIR/segrep.txt")
+    FILES=$(cat "$DIR/segrep.txt" 2>&- || echo "*.*")
     COMMAND="eval find $FILES 2>&-"
     OPTIONS=""
     for var in "$@"
