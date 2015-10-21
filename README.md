@@ -1,4 +1,5 @@
 # SEGrep
+V1.0 2015-10-21
 
 ### Setup    
 1. Clone this repository: `git clone https://github.com/JRonhovde/SEGrep.git`    
@@ -24,3 +25,5 @@ you wish to search(see segrep.example.txt).
 `segrep pattern viewfiles` - open list of matching files in vim    
 
 `segrep pattern viewcountfiles` - same as `viewfiles` but includes matches per file    
+
+You can also pass regular grep options as part of the command, e.g. `segrep -i pattern` will ignore case. Some grep options might conflict with the more complex commands, use at your own risk.
