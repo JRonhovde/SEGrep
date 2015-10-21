@@ -1,0 +1,4 @@
+Create a file named segrep.txt and include the directory paths and file extensions you want to search.
+
+Example:
+*.{php,inc,js} dir/*.{php,inc}
