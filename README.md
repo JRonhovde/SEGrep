@@ -11,7 +11,7 @@ you wish to search(see segrep.example.txt).
 
 `segrep pattern files` - list of files containing pattern     
 
-`segrep pattern count' - same as `files`, but includes # of matches per file     
+`segrep pattern count` - same as `files`, but includes # of matches per file     
 
 `segrep pattern total` - total # of matches     
 
