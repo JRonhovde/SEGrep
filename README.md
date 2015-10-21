@@ -1,11 +1,11 @@
-# SEGrep
+# segrep
 V1.0 2015-10-21
 
 ### Setup    
-1. Clone this repository: `git clone https://github.com/JRonhovde/SEGrep.git`    
+1. Clone this repository: `git clone https://github.com/JRonhovde/segrep.git`    
 2. Create a file named `segrep.txt` with the directory paths and file names/extensions 
 you wish to search(see segrep.example.txt).
-3. Source segrep.sh in your .bashrc or .bash_profile, e.g. `source ~/SEGrep/segrep.sh`.    
+3. Source segrep.sh in your .bashrc or .bash_profile, e.g. `source ~/segrep/segrep.sh`.    
 
 ### Commands    
 `segrep pattern` - normal grep output    
