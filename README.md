@@ -8,11 +8,19 @@ you wish to search(see segrep.example.txt).
 
 ### Commands    
 `segrep pattern` - normal grep output    
-`segrep pattern files` - list of files containing pattern
-`segrep pattern count' - same as `files`, but includes # of matches per file    
-`segrep pattern total` - total # of matches    
-`segrep pattern notfiles` - list of files not containing pattern    
-`segrep pattern notcount` - # of files that do not contain pattern    
-`segrep pattern open` - open all files containing pattern in vim buffers    
-`segrep pattern viewfiles` - open list of matching files in vim
-`segrep pattern viewcountfiles` - same as `viewfiles` but includes matches per file
+
+`segrep pattern files` - list of files containing pattern     
+
+`segrep pattern count' - same as `files`, but includes # of matches per file     
+
+`segrep pattern total` - total # of matches     
+
+`segrep pattern notfiles` - list of files not containing pattern     
+
+`segrep pattern notcount` - # of files that do not contain pattern     
+
+`segrep pattern open` - open all files containing pattern in vim buffers     
+
+`segrep pattern viewfiles` - open list of matching files in vim    
+
+`segrep pattern viewcountfiles` - same as `viewfiles` but includes matches per file    
