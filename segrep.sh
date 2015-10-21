@@ -14,21 +14,21 @@ segrep(){
         echo $($COMMAND) | xargs grep -l $1
     elif [ "$2" == "count" ]; then
         # lists all matching files with # of occurences per file, skipping files with 0 matches
-        echo $($COMMAND) | xargs grep -c $1 | sed '/:0$/d'
+        echo $($COMMAND) | xargs grep -c $1 | sed '/[^1-9]0[^0-9]\?/d'
     elif [ "$2" == "total" ]; then
         # counts total number of occurences in all files
         echo $($COMMAND) | xargs cat | grep -c $1
     elif [ "$2" == "viewfiles" ]; then
-        # writes matching file names into a file (greptest.txt) then opens greptest.txt 
+        # opens list of matching files in vim using stdin 
         echo $($COMMAND) | xargs grep -l --color=never $1 | vim -
     elif [ "$2" == "viewcountfiles" ]; then
-        # writes matching file names into a file (greptest.txt) with # of matches then opens greptest.txt  
+        # opens list of matching files with # of matches per file in vim using stdin 
         echo $($COMMAND) | xargs grep -c --color=never $1 | sed '/:0$/d' | vim -
     elif [ "$2" == "notfiles" ]; then
         # reverse grep for filenames
         echo $($COMMAND) | xargs grep -L $1
     elif [ "$2" == "notcount" ]; then
-        # reverse grep for filenames
+        # reverse grep for filenames - total number of files
         echo $($COMMAND) | xargs grep -L $1 | wc -l
     else
         # regular grep
