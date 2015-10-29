@@ -1,17 +1,22 @@
-# V1.0 2015-10-21
+# V1.0.1 2015-10-29
 segrep(){
+    if [ $# -eq 0 ]; then
+        echo "Error: No arguments supplied"
+        return
+    fi
+
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     FILES=$(cat "$DIR/segrep.txt" 2>&- || echo "*.*")
     COMMAND="eval find $FILES 2>&-"
     OPTIONS=""
     for var in "$@"
     do
-        if [[ "$var" =~ -[A-Za-z]$ ]]; then
+        if [[ "$var" =~ -[ABCDEFGHILPTUZabcdefhilmnoqsuvwxyz]+$ ]]; then
             OPTIONS="$OPTIONS $var"
             shift
         fi
     done
-
+    
     if [ "$2" == "open" ]; then
         # opens all matching files in vim
         vim $(echo $($COMMAND)  | xargs grep -l --color=never "$1")

@@ -1,5 +1,5 @@
 # segrep
-V1.0 2015-10-21
+V1.0.1 2015-10-29
 
 ### Setup    
 1. Clone this repository: `git clone https://github.com/JRonhovde/segrep.git`    
@@ -26,4 +26,4 @@ you wish to search(see segrep.example.txt).
 
 `segrep pattern viewcountfiles` - same as `viewfiles` but includes matches per file    
 
-You can also pass regular grep options as part of the command, e.g. `segrep -i pattern` will ignore case. Some grep options might conflict with the more complex commands, use at your own risk.
+You can also pass regular grep options as part of the command, e.g. `segrep -iv pattern` will match lines that do not contain pattern and ignore case. Some grep options might conflict with the more complex commands, use at your own risk.
