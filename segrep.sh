@@ -9,9 +9,12 @@ segrep(){
     FILES=$(cat "$DIR/segrep.txt" 2>&- || echo "*.*")
     COMMAND="eval find $FILES 2>&-"
     OPTIONS=""
-    for var in "$@"
-    do
+    for var in "$@"; do
         if [[ "$var" =~ -[ABCDEFGHILPTUZabcdefhilmnoqsuvwxyz]+$ ]]; then
+            OPTIONS="$OPTIONS $var"
+            shift
+        fi
+        if [[ "$var" =~ "--color=never" ]]; then
             OPTIONS="$OPTIONS $var"
             shift
         fi
