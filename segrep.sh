@@ -10,7 +10,7 @@ segrep(){
     COMMAND="eval find $FILES 2>&-"
     OPTIONS=""
     for var in "$@"; do
-        if [[ "$var" =~ -[ABCDEFGHILPTUZabcdefhilmnoqsuvwxyz]+$ ]]; then
+        if [[ "$var" =~ ^-[ABCDEFGHILPTUZabcdefhilmnoqsuvwxyz]+$ ]]; then
             OPTIONS="$OPTIONS $var"
             shift
         fi
@@ -18,11 +18,15 @@ segrep(){
             OPTIONS="$OPTIONS $var"
             shift
         fi
+        if [[ "$var" =~ "--path=" ]]; then
+            COMMAND="eval find $(echo $1 | sed -e 's/^[^=]*=//g') 2>&-"
+            shift
+        fi
     done
     
     if [ "$2" == "open" ]; then
         # opens all matching files in vim
-        vim $(echo $($COMMAND)  | xargs grep -l --color=never "$1")
+        vim $(echo $($COMMAND)  | xargs grep $OPTIONS -l --color=never "$1")
     elif [ "$2" == "files" ]; then
         # lists all files containing matching string
         echo $($COMMAND) | xargs grep -l $OPTIONS "$1"
